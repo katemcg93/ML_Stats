@@ -45,3 +45,19 @@ plt.plot(x, curve_m * x + curve_c, 'g-', label = "Curve Fit")
 plt.legend()
 plt.show()
 
+plt.close ()
+
+plt.plot(x,y,'o')
+plt.show()
+plt.close()
+
+polynomial_coeff = np.polyfit(x,y,4)
+
+xnew= np.linspace(2,20,100)
+ynew = np.poly1d(polynomial_coeff)
+plt.plot(xnew,ynew(xnew),x,y,'o')
+plt.show()
+
+
+
+
