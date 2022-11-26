@@ -51,7 +51,7 @@ plt.plot(x,y,'o')
 plt.show()
 plt.close()
 
-polynomial_coeff = np.polyfit(x,y,4)
+polynomial_coeff = np.polyfit(x,y,3)
 
 xnew= np.linspace(2,20,100)
 ynew = np.poly1d(polynomial_coeff)
