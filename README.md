@@ -30,8 +30,20 @@ In addition, the notebook adapts the SciPy documentation on the independent samp
 
 This notebook has two main components:
 - Absolute Value Functions: Using NumPy and Matplotlib, the Absolute Value Function is plotted. An absolute value function is a function that contains of a variable within absolute value bars; it is commonly used to measure the distance between points. However, it is not suitable for fitting straight lines to data; the simplest method of doing this is using a function called differentiation, which is not possible with absolute values as the function is not differentiable at 0. 
-  - Fit Line to Data Set: Three methods are used to fit a straight line to a given dataset (x and y)
+- Fit Line to Data Set: Three methods are used to fit a straight line to a given dataset (x and y)
   - NumPy Polyfit : Uses Least Squares Fitting to calculate the line of best fit for the data.
   - SciPy Optimize : Given a function and an initial guess for the m and c parameters, SciPy Optimize returns the m and c values for the funciton that will result in the least cost.
   - SciPy Curve Fit : Uses Non-Linear Least Squares Fitting to fit a curve to a data set.
  All the above methods provide similar optimized m and c values; however, a straight line is not the best method of modelling the data set as the relationship between x and y is not linear. The NumPy polyfit function was repeated with 3 degrees, and this appeared to fit the data more closely.
+ 
+ ### Parameters
+This notebook provides an overview of polynomial regression, which is used in scenarios where the relationship between x and y is not linear, and the line of best fit is closer to a curve. A polynomial regression model can be developed using Least Squares Fitting; this is a procedure for finding the best-fitting curve for a given dataset by minimizing the sum of the squares of the offsets of the points from the curve. 
+
+In the notebook, the NumPy polyfit function is used to fit a polynomial function with a defined number of degrees to a given data set, where degrees refer to the highest power of the variables in the function. When selecting the number of degrees for a polynomial function, it is important not to overfit the data. Overfitting is where the model has too many terms for the number of observations, and begins to fit the data exactly. This can mean that the model is describing the random error in the data rather than the actual relationships between the variables. 
+
+### Keras Time Series Anomaly Detector
+In this notebook, a neural network is developed using Keras to detect anomalies in the Numenta Anomaly benchmark dataset. The code and plots have been adapted from the Keras documentation, which can be accessed via the below link.
+
+https://keras.io/examples/timeseries/timeseries_anomaly_detection/.
+
+This notebook demonstrates how a neural network, developed using Keras, could be trained to recognize and replicate patterns in a given data set. The input data in this case is taken from the Numenta Anomaly Benchmark source data: NAB is an open-source framework for evaluating and benchmarking anomaly detection algorithms. In addition to real-world anomaly examples, the NAB source data also includes simulated anomaly files. This model is trained to reconstruct one of these simulated data sets, daily_small_noise. This data set emulates small daily variations in a given system. Once the model was trained, it could be passed data from a second source file to the model, with the same structure as the daily_small_noise data set but one set of anomalous values. As the model has been trained to predict only small values in the data set, the error values (MAE) for the anomalies far exceeds the reconstruction loss threshold. We can then flag these values where the MAE is higher than the threshold as anomalies.
